@@ -22,16 +22,16 @@ public class SpringBootGensonApplication {
 	}
 
 	@Configuration
-	static class GensonConfiguration implements WebMvcConfigurer {
+	static class GensonConfiguration {
 		
 		@Bean
 		public Genson genson() {
 			return new Genson();
 		}
 		
-		@Override
-		public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
-			converters.add(new GensonMessageConverter(genson()));
+		@Bean
+		public HttpMessageConverter<Object> messageConverter() {
+			return new GensonMessageConverter(genson());
 		}
 	}
 	

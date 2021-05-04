@@ -29,10 +29,10 @@ public class DirectorController {
   public static class Director {
     private final String name;
     private final int yearOfBirth;
-  
-    @JsonCreator
+    
     public Director(
-        @JsonProperty("name") String name,
+        @JsonProperty("name")
+            String name,
         @JsonProperty("yearOfBirth") int yearOfBirth) {
       this.name = name;
       this.yearOfBirth = yearOfBirth;
